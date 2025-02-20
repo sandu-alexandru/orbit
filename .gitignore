@@ -36,6 +36,10 @@ MANIFEST
 pip-log.txt
 pip-delete-this-directory.txt
 
+# Implementation Plan
+implementation-plan.md
+implementation*.*
+
 # Unit test / coverage reports
 htmlcov/
 .tox/
