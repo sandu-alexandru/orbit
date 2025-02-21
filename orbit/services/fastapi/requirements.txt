@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+pika
+prometheus_client
+opentelemetry-api
+opentelemetry-sdk
+opentelemetry-instrumentation-fastapi

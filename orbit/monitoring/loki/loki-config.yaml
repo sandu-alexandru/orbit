@@ -1,0 +1,48 @@
+auth_enabled: false
+
+server:
+  http_listen_port: 3100
+
+schema_config:
+  configs:
+    - from: 2020-10-24
+      store: inmemory
+      object_store: filesystem
+      schema: v11
+      index:
+        period: 24h
+
+storage_config:
+  boltdb_shipper:
+    active_index_directory: /tmp/loki/boltdb-shipper-active
+    cache_location: /tmp/loki/boltdb-shipper-cache
+    cache_ttl: 24h
+    shared_store: filesystem
+
+ingester:
+  wal:
+    enabled: true
+    dir: /tmp/wal
+  lifecycler:
+    ring:
+      kvstore:
+        store: inmemory
+      replication_factor: 1
+
+distributor:
+  ring:
+    kvstore:
+      store: inmemory
+
+compactor:
+  working_directory: /tmp/loki/compactor
+  shared_store: filesystem
+
+ruler:
+  storage:
+    type: local
+    local:
+      directory: /tmp/loki/rules
+  ring:
+    kvstore:
+      store: inmemory
